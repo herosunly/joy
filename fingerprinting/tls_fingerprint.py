@@ -399,7 +399,7 @@ class TLSFingerprint:
                 info['supported_versions'].append(TLS_VERSION[tmp_data])
             else:
                 info['supported_versions'].append('Unknown Version (%s)' % tmp_data)
-                print 'UNKNOWN %s: %s' % ('SUPPORTED_VERSION', tmp_data)
+                print('UNKNOWN %s: %s' % ('SUPPORTED_VERSION', tmp_data)) 
             offset += 2
 
         return info
@@ -452,7 +452,7 @@ class TLSFingerprint:
                 info['ec_point_formats'].append(TLS_EC_POINT_FORMATS[data[i+1:i+2].encode('hex')])
             else:
                 info['ec_point_formats'].append(data[i+1:i+2].encode('hex'))
-                print 'UNKNOWN %s: %s' % ('EC_POINT_FORMAT', data[i+1:i+2].encode('hex'))
+                print('UNKNOWN %s: %s' % ('EC_POINT_FORMAT', data[i+1:i+2].encode('hex'))) 
 
         return info
 
@@ -486,7 +486,7 @@ class TLSFingerprint:
                 info['algorithms'].append(TLS_SIGNATURE_HASH_ALGORITHMS[tmp_data])
             else:
                 info['algorithms'].append('unknown(%s)' % tmp_data)
-                print 'UNKNOWN %s: %s' % ('SIGNATURE_ALGORITHM', tmp_data)
+                print('UNKNOWN %s: %s' % ('SIGNATURE_ALGORITHM', tmp_data)) 
             offset += 2
 
         return info

@@ -75,7 +75,7 @@ class Pull:
             try:
                 dParse = DataParser(idir + f,self.compact)
             except:
-                print 'Error: failued to parse file %s' % (idir + f)
+                print('Error: failued to parse file %s' % (idir + f)) 
                 continue
 
             num_files += 1

@@ -56,7 +56,7 @@ def tls_fp_dict_init():
             fpvalue = json.dumps(tmp['str_repr'])
             fpvalue = fpvalue.strip('"')
             if fpvalue in tls_fp_dict:
-                print "warning: duplicate tls fingerprint in line " + str(counter + 1) + " of file " + tls_fp_file
+                print("warning: duplicate tls fingerprint in line " + str(counter + 1) + " of file " + tls_fp_file) 
             tls_fp_dict[fpvalue] = tmp
 
 
@@ -156,7 +156,7 @@ def print_out_structured_data(s):
     while s is not '':
         element, s, level = get_next_element(s)
         current_level += level
-        print current_level, element, s 
+        print(current_level, element, s )
 
 
 def structured_fp_normalize(s):

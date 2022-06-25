@@ -69,7 +69,7 @@ class GenFingerprint:
                 try:
                     flow = json.loads(line)
                 except Exception as e:
-                    print e
+                    print(e)
 
                 if 'fingerprints' in flow and 'tls' in flow['fingerprints']:
                     fp_str_ = flow['fingerprints']['tls']
@@ -149,7 +149,7 @@ def main():
             input_files.append(x)
 
     if len(input_files) == 0:
-        print 'error: need Joy JSON'
+        print('error: need Joy JSON') 
         return 1
 
     gen_fp_db = GenFingerprint(options.contrib_info)

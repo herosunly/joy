@@ -48,7 +48,7 @@ def learn_param(data, labels, param_file):
     logreg = LogRegClassifier(standardize=False)
     logreg.train(data, labels)
 
-    print 'non-zero parameters:\t' + str(logreg.get_num_nonzero_params())
+    print('non-zero parameters:\t' + str(logreg.get_num_nonzero_params())) 
     w,b = logreg.get_parameters()
     A = list(b)
     w = list(w[0])
@@ -85,15 +85,15 @@ def main():
         types.append(4)
 
     if args.pos_dir == None or not os.path.isdir(args.pos_dir):
-        print 'No valid positive directory'
+        print('No valid positive directory') 
         return
 
     if args.neg_dir == None or not os.path.isdir(args.neg_dir):
-        print 'No valid negative directory'
+        print('No valid negative directory') 
         return
 
     if types == []:
-        print 'Enter some data types to learn on (-m, -l, -t, -d, -s)'
+        print('Enter some data types to learn on (-m, -l, -t, -d, -s)') 
         return
 
     param_file = args.output
@@ -113,35 +113,35 @@ def main():
         else:
             num_negative += 1
 
-    print 'Num Positive:\t%i' % (num_positive)
-    print 'Num Negative:\t%i' % (num_negative)
-    print
-    print 'Features Used:'
+    print('Num Positive:\t%i' % (num_positive)) 
+    print('Num Negative:\t%i' % (num_negative)) 
+    print()
+    print('Features Used:') 
     num_params = 0
     for t in types:
         if t == 0:
-            print '\tMetadata\t\t(7)'
+            print('\tMetadata\t\t(7)') 
             num_params += 7
         elif t == 1 and compact == 0:
-            print '\tPacket Lengths\t\t(3600)'
+            print('\tPacket Lengths\t\t(3600)') 
             num_params += 3600
         elif t == 1 and compact == 1:
-            print '\tPacket Lengths\t\t(100)'
+            print('\tPacket Lengths\t\t(100)') 
             num_params += 100
         elif t == 2 and compact == 0:
-            print '\tPacket Times\t\t(900)'
+            print('\tPacket Times\t\t(900)') 
             num_params += 900
         elif t == 2 and compact == 1:
-            print '\tPacket Times\t\t(100)'
+            print('\tPacket Times\t\t(100)') 
             num_params += 100
         elif t == 3:
-            print '\tByte Distribution\t(256)'
+            print('\tByte Distribution\t(256)') 
             num_params += 256
         elif t == 4:
-            print '\tTLS Information\t\t(198)'
+            print('\tTLS Information\t\t(198)') 
             num_params += 198
-    print 'Total Features:\t%i' % (num_params)
-    print
+    print('Total Features:\t%i' % (num_params)) 
+    print()
 
     learn_param(data, labels, args.output)
 

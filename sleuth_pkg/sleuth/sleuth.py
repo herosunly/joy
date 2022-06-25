@@ -244,7 +244,7 @@ class DictStreamDistributionIterator(DictStreamIterator):
 
             for d in output:
                 json.dump(d, sys.stdout, indent=self.indent)
-                print ""
+                print("") 
 
             raise StopIteration
 
@@ -277,7 +277,7 @@ class DictStreamProcessor(object):
             for obj in self.obj_set:
                 try:
                     json.dump(obj, sys.stdout, indent=self.indent)
-                    print ""
+                    print("") 
                 except IOError:
                     # Broken pipe, exit loop
                     break
@@ -301,7 +301,7 @@ class DictStreamGroupProcessor(DictStreamProcessor):
 
     def post_process(self, proc=None):
         if self.context:
-            print self.context
+            print(self.context)
 
         for k, v in self.dict.items():
             v.post_process(copy.deepcopy(proc))
@@ -348,7 +348,7 @@ class DictStreamSumProcessor(DictStreamProcessor):
         # NOTE: sum_over might interfere with --dist
         d["sum_over"] = self.total
         json.dump(d, sys.stdout, indent=self.indent)
-        print ""
+        print("") 
 
 
 class DictStreamDistributionProcessor(DictStreamProcessor):
@@ -379,7 +379,7 @@ class DictStreamDistributionProcessor(DictStreamProcessor):
 
         for d in output:
             json.dump(d, sys.stdout, indent=self.indent)
-            print ""
+            print("") 
 
 
 """

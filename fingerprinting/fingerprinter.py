@@ -210,7 +210,7 @@ def main():
     elif len(input_files) > 0:
         fingerprinter.extract_fingerprints(input_files)
     else:
-        print 'error: need a pcap/interface'
+        print('error: need a pcap/interface') 
         return 1
 
 
